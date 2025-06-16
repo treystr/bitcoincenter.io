@@ -1,4 +1,6 @@
 import { ImageResponse } from 'next/og'
+import fs from 'fs'
+import path from 'path'
 
 export const dynamic = 'force-static'
 export const size = {
@@ -7,11 +9,10 @@ export const size = {
 }
 export const contentType = 'image/png'
 
-export default async function Image() {
-  const siteUrl = process.env.NODE_ENV === 'production'
-    ? 'https://treystr.github.io/bitcoincenter.io'
-    : 'http://localhost:3000'
+const heroBuffer = fs.readFileSync(path.join(process.cwd(), 'public', 'hero.jpg'))
+const heroSrc = `data:image/jpeg;base64,${heroBuffer.toString('base64')}`
 
+export default async function Image() {
   return new ImageResponse(
     (
       <div
@@ -27,7 +28,9 @@ export default async function Image() {
       >
         {/* Background hero image */}
         <img
-          src={`${siteUrl}/hero.jpg`}
+          src={heroSrc}
+          width="1200"
+          height="630"
           alt="Hero background"
           style={{
             position: 'absolute',
