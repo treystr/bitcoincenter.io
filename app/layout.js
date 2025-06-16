@@ -1,9 +1,7 @@
 import './globals.css'
+import siteMetadata from '../lib/seo.config'
 
-export const metadata = {
-  title: 'Bitcoin Academic Center',
-  description: 'Advancing Bitcoin research, education, and policy in the heart of the nation\'s capital.',
-}
+export const metadata = siteMetadata
 
 export default function RootLayout({ children }) {
   return (
