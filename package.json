@@ -2,6 +2,7 @@
   "name": "bitcoin-center",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://treystr.github.io/bitcoincenter.io/",
   "scripts": {
     "dev": "next dev --turbopack",
     "dev:webpack": "next dev" ,
