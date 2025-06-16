@@ -2,9 +2,12 @@
 
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
+import { usePathname } from 'next/navigation'
 
 const NavBar = () => {
   const [isScrolled, setIsScrolled] = useState(false)
+  const pathname = usePathname()
+  const basePath = process.env.NODE_ENV === 'production' ? '/bitcoincenter.io' : ''
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,7 +28,7 @@ const NavBar = () => {
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
             <div className="w-15 h-15 rounded-lg flex items-center justify-center">
-              <Image src="/logo.svg" alt="Logo" width={28} height={28} />
+              <Image src={`${basePath}/logo.svg`} alt="Logo" width={28} height={28} />
             </div>
             <div>
               <h1 className="text-xl font-bold text-white">Bitcoin Academic Center</h1>

@@ -2,10 +2,13 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
+import { usePathname } from 'next/navigation'
 
 const Hero = () => {
   const [email, setEmail] = useState('')
   const [isSubscribed, setIsSubscribed] = useState(false)
+  const pathname = usePathname()
+  const basePath = process.env.NODE_ENV === 'production' ? '/bitcoincenter.io' : ''
 
   const handleSubscribe = (e) => {
     e.preventDefault()
@@ -22,7 +25,7 @@ const Hero = () => {
       <div
         className="absolute inset-0 bg-cover bg-center transform scale-110 animate-slow-zoom"
         style={{
-          backgroundImage: `url('/hero.jpg')`,
+          backgroundImage: `url('${basePath}/hero.jpg')`,
           filter: 'sepia(20%) saturate(120%) brightness(80%)'
         }}
       ></div>
