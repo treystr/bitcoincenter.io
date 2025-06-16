@@ -4,8 +4,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: process.env.NODE_ENV === 'production' ? '/bitcoin-center' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/bitcoin-center/' : '',
+  basePath: process.env.NODE_ENV === 'production' ? '/bitcoincenter.io' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/bitcoincenter.io/' : '',
 };
 
 export default nextConfig;
