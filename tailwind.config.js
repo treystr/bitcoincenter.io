@@ -10,6 +10,9 @@ module.exports = {
         background: 'rgb(var(--background-rgb) / <alpha-value>)',
         foreground: 'rgb(var(--foreground-rgb) / <alpha-value>)',
       },
+      fontFamily: {
+        alegreya: ['var(--font-alegreya-sc)', 'serif'],
+      },
     },
   },
   plugins: [],
