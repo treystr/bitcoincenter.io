@@ -1,29 +1,15 @@
 'use client'
 
-import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 
-const NavBar = () => {
-  const [isScrolled, setIsScrolled] = useState(false)
+// Accept an optional `backgroundClass` prop to apply custom background styles.
+const NavBar = ({ backgroundClass = '' }) => {
   const pathname = usePathname()
   const basePath = process.env.NODE_ENV === 'production' ? '/bitcoincenter.io' : ''
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
-    }
-
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-      isScrolled
-        ? 'bg-slate-900/95 backdrop-blur-lg border-b border-slate-700/50'
-        : 'bg-transparent'
-    }`}>
+    <nav className={`fixed top-0 left-0 right-0 z-50 ${backgroundClass}`}>
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">

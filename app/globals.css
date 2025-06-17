@@ -21,7 +21,7 @@
   --foreground-rgb: 255, 255, 255;
   --background-start-rgb: 15, 23, 42;
   --background-end-rgb: 30, 41, 59;
-}
+} 
 
 body {
   color: rgb(var(--foreground-rgb));
@@ -30,4 +30,30 @@ body {
     rgb(var(--background-start-rgb)),
     rgb(var(--background-end-rgb))
   );
-} 
+}
+
+/* Custom Scrollbar */
+html {
+  /* For Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: #faab14 rgb(var(--background-end-rgb));
+}
+
+body::-webkit-scrollbar {
+  width: 12px;               /* width of the entire scrollbar */
+  height: 12px;              /* height for horizontal scrollbars */
+}
+
+body::-webkit-scrollbar-track {
+  background: rgb(var(--background-end-rgb)); /* Track matches the dark background */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #faab14; /* Accent color */
+  border-radius: 6px;        /* Rounded corners */
+  border: 3px solid rgb(var(--background-end-rgb)); /* Adds space around thumb */
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background-color: #ffc64e; /* Slightly lighter on hover */
+}
