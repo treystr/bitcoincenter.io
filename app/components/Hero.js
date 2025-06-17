@@ -66,13 +66,13 @@ const Hero = () => {
                   : 'bg-gradient-to-r from-amber-500 to-orange-500 text-slate-900 hover:from-amber-400 hover:to-orange-400 hover:shadow-amber-500/25'
               }`}
             >
-              {isSubscribed ? 'Subscribed!' : 'Subscribe'}
+              {isSubscribed ? 'Thanks!' : 'Connect'}
             </button>
           </form>
 
           {isSubscribed && (
             <p className="text-green-400 mt-4 text-sm font-medium animate-pulse">
-              Thank you! You'll be notified of updates.
+              Thank's for your interest! We'll reach out with more updates.
             </p>
           )}
         </div>
