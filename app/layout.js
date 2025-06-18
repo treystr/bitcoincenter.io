@@ -1,22 +1,22 @@
 import './globals.css'
 import siteMetadata from '../lib/seo.config'
-import { Alegreya_SC } from 'next/font/google'
+import { Cardo } from 'next/font/google'
 import VantaFog from './components/VantaFog'
 
-const alegreya = Alegreya_SC({
+const cardo = Cardo({
   subsets: ['latin'],
-  weight: ['400', '500', '700', '800', '900'],
+  weight: ['400', '700'],
   style: ['normal', 'italic'],
   display: 'swap',
-  variable: '--font-alegreya-sc',
+  variable: '--font-cardo',
 })
 
 export const metadata = siteMetadata
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${alegreya.variable} antialiased`}>
-      <body className="font-alegreya min-h-screen">
+    <html lang="en" className={`${cardo.variable} antialiased`}>
+      <body className="font-cardo min-h-screen">
         <VantaFog />
         {children}
       </body>

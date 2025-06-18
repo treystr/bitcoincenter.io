@@ -11,7 +11,7 @@ module.exports = {
         foreground: 'rgb(var(--foreground-rgb) / <alpha-value>)',
       },
       fontFamily: {
-        alegreya: ['var(--font-alegreya-sc)', 'serif'],
+        cardo: ['var(--font-cardo)', 'serif'],
       },
     },
   },

@@ -31,7 +31,8 @@ const ContactForm = () => {
       <div className="max-w-2xl mx-auto px-6">
         {/* Contact form */}
         <div className="w-full">
-          <h2 className="text-4xl font-bold text-white mb-8 text-center">Connect With Us</h2>
+          <h2 className="text-4xl font-bold text-white mb-8 text-center">Join the Bitcoin Academic Center</h2>
+          <p className="text-lg text-slate-200 mb-8 text-center">Connect with us to stay informed about our programs, research, and events, or express your interest in contributing to our mission of advancing Bitcoin education and awareness.</p>
           <form onSubmit={handleSubmit} className="flex flex-col gap-4">
             {/* First / Last name row */}
             <div className="flex flex-col sm:flex-row gap-4">
@@ -77,13 +78,13 @@ const ContactForm = () => {
             <button
               type="submit"
               disabled={isSubmitted}
-              className={`px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-xl w-max ${
+              className={`self-end px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-xl w-max ${
                 isSubmitted
                   ? 'bg-green-500 text-white'
                   : 'bg-gradient-to-r from-amber-500 to-orange-500 text-slate-900 hover:from-amber-400 hover:to-orange-400 hover:shadow-amber-500/25'
               }`}
             >
-              {isSubmitted ? 'Thank you!' : 'Connect'}
+              {isSubmitted ? 'Thank you!' : 'Join Us'}
             </button>
 
             {isSubmitted && (
