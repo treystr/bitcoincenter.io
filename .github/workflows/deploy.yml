@@ -30,6 +30,9 @@ jobs:
         run: npm ci
         
       - name: Build project
+        env:
+          NEXT_PUBLIC_SITE_URL:  ${{ secrets.NEXT_PUBLIC_SITE_URL }}
+          NEXT_PUBLIC_BASE_PATH: ${{ secrets.NEXT_PUBLIC_BASE_PATH }}
         run: npm run build
         
       - name: Upload artifact
