@@ -1,110 +1,32 @@
-'use client'
+import Image from 'next/image';
 
-import { useEffect, useState, useRef } from 'react'
-import { FaChevronDown } from 'react-icons/fa'
-
-const Hero = ({
-  backgroundImage = '',
-  backgroundColorClass = '',
-  withGradient = false,
-  gradientClassName = 'bg-gradient-to-br from-slate-900/90 via-slate-800/80 to-slate-900/90',
-  filter = 'sepia(20%) saturate(120%) brightness(80%)',
-  separatorImage = '/separator.png'
-}) => {
-  // Resolve full path for background image when a relative path is provided.
-  const basePath = process.env.NODE_ENV === 'production' ? '/bitcoincenter.io' : ''
-  const resolvedBgImage = backgroundImage
-    ? backgroundImage.startsWith('http')
-      ? backgroundImage
-      : `${basePath}${backgroundImage.startsWith('/') ? '' : '/'}${backgroundImage}`
-    : ''
-
-  // Resolve full path for separator image
-  const resolvedSeparatorImage = separatorImage
-    ? separatorImage.startsWith('http')
-      ? separatorImage
-      : `${basePath}${separatorImage.startsWith('/') ? '' : '/'}${separatorImage}`
-    : ''
-
-  // Ref for the hero section
-  const heroRef = useRef(null)
-  // State to track arrow opacity
-  const [arrowOpacity, setArrowOpacity] = useState(1)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!heroRef.current) return
-      const rect = heroRef.current.getBoundingClientRect()
-      const windowHeight = window.innerHeight || document.documentElement.clientHeight
-      // Calculate how much of the hero is visible
-      const visible = Math.max(0, Math.min(rect.bottom, windowHeight) - Math.max(rect.top, 0))
-      const total = rect.height
-      let percentVisible = visible / total
-      percentVisible = Math.max(0, Math.min(1, percentVisible))
-      setArrowOpacity(percentVisible)
-    }
-    window.addEventListener('scroll', handleScroll)
-    handleScroll()
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
+export default function Hero2() {
   return (
-    <section
-      ref={heroRef}
-      id="home"
-      className={`relative h-screen flex items-center justify-center overflow-hidden ${backgroundColorClass}`}
-    >
-      {withGradient && (
-        <div className={`absolute inset-0 z-10 ${gradientClassName}`}></div>
-      )}
-
-      {resolvedBgImage && (
-        <div
-          className="absolute inset-0 bg-cover bg-center transform scale-110 animate-slow-zoom"
-          style={{
-            backgroundImage: `url('${resolvedBgImage}')`,
-            filter
-          }}
-        ></div>
-      )}
-
-      <div className="relative z-20 text-center max-w-6xl mx-auto px-6">
-        <div className="mb-8">
-          <h1 className="text-7xl md:text-9xl lg:text-[8rem] font-extrabold text-white mb-8 leading-tight drop-shadow-[0_8px_32px_rgba(0,0,0,0.75)]">
+    <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden">
+      <div className="container mx-auto px-6 py-16 flex flex-col md:flex-row items-center justify-center md:space-x-6 w-full">
+        <div className="w-full md:w-1/4 flex justify-center mb-6 md:mb-0">
+          <Image 
+            src="/bust.png" 
+            alt="Bitcoin Academic Center" 
+            width={248} 
+            height={248} 
+            className="w-32 sm:w-40 md:w-52 lg:w-[300px] h-auto"
+          />
+        </div>
+        
+        <div className="w-full md:w-2/3 text-center md:text-left space-y-8">
+          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-extrabold text-white leading-tight lg:whitespace-nowrap drop-shadow-[0_8px_32px_rgba(0,0,0,0.75)]">
             Bitcoin Academic
             <span className="block bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 bg-clip-text text-transparent drop-shadow-[0_4px_24px_rgba(255,140,0,0.5)]">
               Center
             </span>
           </h1>
-          <p className="text-xl md:text-2xl text-slate-300 mb-8 max-w-4xl mx-auto leading-relaxed">
-          Pioneering Bitcoin research, education, and policy from the heart of Washington, DC. Where rigorous scholarship drives bold innovation to redefine the future of global finance.
+          
+          <p className="text-lg sm:text-xl md:text-2xl text-slate-300 leading-relaxed max-w-4xl mx-auto md:mx-0">
+            The Bitcoin Academic Center will be the epicenter of Bitcoin scholarship and intellectual influence in the United States. It will be a pioneering interdisciplinary institution dedicated to advancing the understanding, adoption & innovation of Bitcoin through education, research, advocacy, and engagement with decision-makers.
           </p>
         </div>
       </div>
-      {/* Decorative Scroll Down Arrow */}
-      {arrowOpacity > 0 && (
-        <button
-          type="button"
-          aria-label="Scroll to next section"
-          tabIndex={0}
-          onClick={() => {
-            const nextSection = document.querySelector('#about')
-            if (nextSection) {
-              nextSection.scrollIntoView({ behavior: 'smooth' })
-            }
-          }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center focus:outline-none group"
-          style={{ opacity: arrowOpacity, transition: 'opacity 0.4s' }}
-        >
-          <FaChevronDown
-            className="text-amber-400 drop-shadow-lg animate-bounce group-focus:animate-pulse"
-            style={{ fontSize: 48 }}
-          />
-          <span className="sr-only">Scroll to next section</span>
-        </button>
-      )}
     </section>
-  )
-}
-
-export default Hero 
+  );
+} 
