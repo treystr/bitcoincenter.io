@@ -48,7 +48,7 @@ const NavBar = ({ backgroundClass = '' }) => {
               />
             </div>
             <div>
-              <h1 className="text-xl font-bold text-white">Bitcoin Academic Center</h1>
+              <h2 className="text-xl font-bold text-white">Bitcoin Academic Center</h2>
               <p className="text-xs text-slate-400">Washington, DC</p>
             </div>
           </div>
