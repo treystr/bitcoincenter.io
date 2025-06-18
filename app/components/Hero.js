@@ -1,5 +1,6 @@
 'use client'
 
+import { useEffect, useState, useRef } from 'react'
 import { FaChevronDown } from 'react-icons/fa'
 
 const Hero = ({
@@ -25,8 +26,31 @@ const Hero = ({
       : `${basePath}${separatorImage.startsWith('/') ? '' : '/'}${separatorImage}`
     : ''
 
+  // Ref for the hero section
+  const heroRef = useRef(null)
+  // State to track arrow opacity
+  const [arrowOpacity, setArrowOpacity] = useState(1)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!heroRef.current) return
+      const rect = heroRef.current.getBoundingClientRect()
+      const windowHeight = window.innerHeight || document.documentElement.clientHeight
+      // Calculate how much of the hero is visible
+      const visible = Math.max(0, Math.min(rect.bottom, windowHeight) - Math.max(rect.top, 0))
+      const total = rect.height
+      let percentVisible = visible / total
+      percentVisible = Math.max(0, Math.min(1, percentVisible))
+      setArrowOpacity(percentVisible)
+    }
+    window.addEventListener('scroll', handleScroll)
+    handleScroll()
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   return (
     <section
+      ref={heroRef}
       id="home"
       className={`relative h-screen flex items-center justify-center overflow-hidden ${backgroundColorClass}`}
     >
@@ -58,24 +82,27 @@ const Hero = ({
         </div>
       </div>
       {/* Decorative Scroll Down Arrow */}
-      <button
-        type="button"
-        aria-label="Scroll to next section"
-        tabIndex={0}
-        onClick={() => {
-          const nextSection = document.querySelector('#about')
-          if (nextSection) {
-            nextSection.scrollIntoView({ behavior: 'smooth' })
-          }
-        }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center focus:outline-none group"
-      >
-        <FaChevronDown
-          className="text-amber-400 drop-shadow-lg animate-bounce group-focus:animate-pulse"
-          style={{ fontSize: 48 }}
-        />
-        <span className="sr-only">Scroll to next section</span>
-      </button>
+      {arrowOpacity > 0 && (
+        <button
+          type="button"
+          aria-label="Scroll to next section"
+          tabIndex={0}
+          onClick={() => {
+            const nextSection = document.querySelector('#about')
+            if (nextSection) {
+              nextSection.scrollIntoView({ behavior: 'smooth' })
+            }
+          }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center focus:outline-none group"
+          style={{ opacity: arrowOpacity, transition: 'opacity 0.4s' }}
+        >
+          <FaChevronDown
+            className="text-amber-400 drop-shadow-lg animate-bounce group-focus:animate-pulse"
+            style={{ fontSize: 48 }}
+          />
+          <span className="sr-only">Scroll to next section</span>
+        </button>
+      )}
     </section>
   )
 }
