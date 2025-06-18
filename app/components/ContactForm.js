@@ -31,7 +31,7 @@ const ContactForm = () => {
       <div className="max-w-2xl mx-auto px-6">
         {/* Contact form */}
         <div className="w-full">
-          <h2 className="text-4xl font-bold text-white mb-8 text-center">Join the Bitcoin Academic Center</h2>
+          <h2 className="text-5xl md:text-6xl font-extrabold text-white mb-10 text-center tracking-tight">Join the Bitcoin Academic Center</h2>
           <p className="text-lg text-slate-200 mb-8 text-center">BITCOIN IS MAKING POLITICAL & ECONOMIC HISTORY. IT MUST BE STUDIED, EXPLAINED, AND PRESERVED IN THE CENTER OF POLITICS, THE NATION'S CAPITAL - WASHINGTON, DC.</p>
           <form onSubmit={handleSubmit} className="flex flex-col gap-4">
             {/* First / Last name row */}

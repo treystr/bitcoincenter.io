@@ -6,7 +6,7 @@ export default function Hero() {
       <div className="container mx-auto px-6 py-16 flex flex-col md:flex-row items-center justify-center md:space-x-6 w-full">
         <div className="w-full md:w-1/4 flex justify-center mb-6 md:mb-0">
           <Image 
-            src="/bust.svg" 
+            src="/bust.png" 
             alt="Bitcoin Academic Center" 
             width={248} 
             height={248} 

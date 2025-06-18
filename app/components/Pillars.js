@@ -8,31 +8,31 @@ const pillarItems = [
     image: '/education.png',
     alt: 'EDUCATION',
     title: 'EDUCATION',
-    text: 'The Bitcoin Academic Center aims to develop innovative academic programs to provide students with a comprehensive understanding of Bitcoin\'s technology, economics, and societal potential. From introductory courses to advanced seminars, we plan to cultivate critical thinking and practical expertise, empowering future leaders in a decentralized financial landscape.'
+    text: 'Creation of PhD scholarships, summer schools and online courses, podcasts and webinars.'
   },
   {
     image: '/research.png',
     alt: 'RESEARCH',
     title: 'RESEARCH',
-    text: "Our center seeks to lead groundbreaking research into Bitcoin's protocol, scalability, and practical applications. By fostering collaboration between faculty and students, we aim to explore blockchain technology, monetary systems, and financial inclusion, producing insights to guide policymakers and enrich academic scholarship."
+    text: "Papers, books, and briefs. Conferences and lectures. Charis, professorships, and fellowship programs."
   },
   {
     image: '/advocacy.png',
     alt: 'ADVOCACY',
     title: 'ADVOCACY',
-    text: 'Through a global network, the Bitcoin Academic Center plans to connect scholars, policymakers, and communities to champion Bitcoin adoption worldwide. We intend to organize workshops, conferences, and outreach initiatives to demystify Bitcoin, inspiring diverse audiences to embrace its transformative possibilities.'
+    text: 'Engage with decision-makers at federal, local, international levels. Policy reports and roundtables.'
   },
   {
     image: '/evangelization.png',
     alt: 'EVANGELIZATION',
     title: 'EVANGELIZATION',
-    text: 'Through a global network, the Bitcoin Academic Center plans to connect scholars, policymakers, and communities to champion Bitcoin adoption worldwide. We intend to organize workshops, conferences, and outreach initiatives to demystify Bitcoin, inspiring diverse audiences to embrace its transformative possibilities.'
+    text: 'Outreach promoting Bitcoin adoption, targeting corporates, nonprofits, & charities.'
   },
   {
     image: '/preservation.png',
     alt: 'PRESERVATION',
     title: 'PRESERVATION',
-    text: 'Through a global network, the Bitcoin Academic Center plans to connect scholars, policymakers, and communities to champion Bitcoin adoption worldwide. We intend to organize workshops, conferences, and outreach initiatives to demystify Bitcoin, inspiring diverse audiences to embrace its transformative possibilities.'
+    text: 'Partnership with Satoshi Nakamoto Institute to build a library, museum, and art gallery.'
   }
 ]
 
@@ -63,7 +63,7 @@ const Pillars = () => {
   return (
     <section id="pillars" className="py-12">
       <div className="max-w-6xl mx-auto px-6 text-center">
-        <h2 className="text-4xl font-bold text-white mb-8 text-center">The Five Pillars</h2>
+        <h2 className="text-5xl md:text-6xl font-extrabold text-white mb-10 text-center tracking-tight">The Five Pillars</h2>
         <div className="flex flex-wrap justify-center gap-y-12 gap-x-8 lg:gap-x-8">
           {pillarItems.map((item, index) => {
             const resolvedSrc = item.image.startsWith('http')
