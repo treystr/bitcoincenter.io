@@ -2,24 +2,36 @@
 import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
 
-// Simple data structure representing each card in the About section
-const aboutItems = [
+// Simple data structure representing each card in the Pillars section
+const pillarItems = [
   {
-    image: '/lincoln.png',
-    alt: 'Shaping Education',
-    title: 'Shaping Education',
+    image: '/education.png',
+    alt: 'EDUCATION',
+    title: 'EDUCATION',
     text: 'The Bitcoin Academic Center aims to develop innovative academic programs to provide students with a comprehensive understanding of Bitcoin\'s technology, economics, and societal potential. From introductory courses to advanced seminars, we plan to cultivate critical thinking and practical expertise, empowering future leaders in a decentralized financial landscape.'
   },
   {
-    image: '/capitol.png',
-    alt: 'Advancing Research',
-    title: 'Advancing Research',
+    image: '/research.png',
+    alt: 'RESEARCH',
+    title: 'RESEARCH',
     text: "Our center seeks to lead groundbreaking research into Bitcoin's protocol, scalability, and practical applications. By fostering collaboration between faculty and students, we aim to explore blockchain technology, monetary systems, and financial inclusion, producing insights to guide policymakers and enrich academic scholarship."
   },
   {
-    image: '/court.png',
-    alt: 'Global Awareness',
-    title: 'Global Awareness',
+    image: '/advocacy.png',
+    alt: 'ADVOCACY',
+    title: 'ADVOCACY',
+    text: 'Through a global network, the Bitcoin Academic Center plans to connect scholars, policymakers, and communities to champion Bitcoin adoption worldwide. We intend to organize workshops, conferences, and outreach initiatives to demystify Bitcoin, inspiring diverse audiences to embrace its transformative possibilities.'
+  },
+  {
+    image: '/evangelization.png',
+    alt: 'EVANGELIZATION',
+    title: 'EVANGELIZATION',
+    text: 'Through a global network, the Bitcoin Academic Center plans to connect scholars, policymakers, and communities to champion Bitcoin adoption worldwide. We intend to organize workshops, conferences, and outreach initiatives to demystify Bitcoin, inspiring diverse audiences to embrace its transformative possibilities.'
+  },
+  {
+    image: '/preservation.png',
+    alt: 'PRESERVATION',
+    title: 'PRESERVATION',
     text: 'Through a global network, the Bitcoin Academic Center plans to connect scholars, policymakers, and communities to champion Bitcoin adoption worldwide. We intend to organize workshops, conferences, and outreach initiatives to demystify Bitcoin, inspiring diverse audiences to embrace its transformative possibilities.'
   }
 ]
@@ -44,15 +56,16 @@ function useInView(options) {
   return [ref, inView]
 }
 
-const About = () => {
+const Pillars = () => {
   // Resolve correct base path for static assets in production just like other components
   const basePath = process.env.NODE_ENV === 'production' ? '/bitcoincenter.io' : ''
 
   return (
-    <section id="about" className="py-12">
+    <section id="pillars" className="py-12">
       <div className="max-w-6xl mx-auto px-6 text-center">
-        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
-          {aboutItems.map((item, index) => {
+        <h2 className="text-4xl font-bold text-white mb-8 text-center">The Five Pillars</h2>
+        <div className="flex flex-wrap justify-center gap-y-12 gap-x-8 lg:gap-x-8">
+          {pillarItems.map((item, index) => {
             const resolvedSrc = item.image.startsWith('http')
               ? item.image
               : `${basePath}${item.image.startsWith('/') ? '' : '/'}${item.image}`
@@ -66,14 +79,14 @@ const About = () => {
               <div
                 key={index}
                 ref={cardRef}
-                className="flex flex-col items-center text-center transition-all duration-700 ease-out group"
+                className="w-full sm:w-1/2 lg:basis-[30%] lg:w-[30%] flex flex-col items-center text-center transition-all duration-700 ease-out group"
                 style={{
                   opacity: inView ? 1 : 0,
                   transform: inView ? 'none' : 'translateY(48px)',
                   transitionDelay: delay
                 }}
               >
-                <div className="w-full h-56 relative mb-6 overflow-hidden rounded-lg">
+                <div className="w-full h-56 relative mb-6 overflow-hidden">
                   <Image
                     src={resolvedSrc}
                     alt={item.alt}
@@ -93,4 +106,4 @@ const About = () => {
   )
 }
 
-export default About 
+export default Pillars 
