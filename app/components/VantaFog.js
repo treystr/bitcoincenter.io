@@ -22,17 +22,17 @@ export default function VantaFog() {
           mouseControls: false,
           touchControls: false,
           gyroControls: true,
-          minHeight: 200.0,
-          minWidth: 200.0,
-          highlightColor: 0xF7931A, // Bitcoin orange
-          midtoneColor: 0x333333,  // Dark gray
-          lowlightColor: 0x0A0A0A, // Deep black
-          baseColor: 0x1C1C1C,     // Charcoal gray
-          blurFactor: 0.5,         // Slightly reduced for subtlety
+          minHeight: 500.0,
+          minWidth: 500.0,
+          highlightColor: 0xF7931A, // Bitcoin orange for the fog
+          midtoneColor: 0x3F3C3C,  // Dark gray as requested
+          lowlightColor: 0x2A2929, // Slightly darker variant of #3F3C3C for depth
+          baseColor: 0x1F1E1E,     // Near #3F3C3C for a subtle gradient
+          blurFactor: 0.5,         // Kept for subtlety
           speed: 0.4,
           zoom: 0.5,
         });
-        setVantaEffect(instance)
+        setVantaEffect(instance);
       })
       return () => {
         isMounted = false
