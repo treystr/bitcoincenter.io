@@ -9,13 +9,13 @@ const pillarItems = [
     image: '/education.png',
     alt: 'EDUCATION',
     title: 'EDUCATION',
-    text: 'Creation of PhD scholarships, summer schools and online courses, podcasts and webinars.'
+    text: 'Creation of university degrees, PhD scholarships, online courses, podcasts and webinars.'
   },
   {
     image: '/research.png',
     alt: 'RESEARCH',
     title: 'RESEARCH',
-    text: "Papers, books, and briefs. Conferences and lectures. Charis, professorships, and fellowship programs."
+    text: "Papers, books, and briefs. Conferences and lectures. Chairs, professorships, and fellowship programs."
   },
   {
     image: '/advocacy.png',
@@ -27,7 +27,7 @@ const pillarItems = [
     image: '/evangelization.png',
     alt: 'EVANGELIZATION',
     title: 'EVANGELIZATION',
-    text: 'Outreach promoting Bitcoin adoption, targeting corporates, nonprofits, & charities.'
+    text: 'Outreach promoting Bitcoin adoption, targeting corporations, nonprofits, charities, and organizations.'
   },
   {
     image: '/preservation.png',

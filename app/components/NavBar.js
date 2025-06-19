@@ -55,7 +55,7 @@ const NavBar = ({ backgroundClass = '' }) => {
           <div className="hidden md:flex items-center space-x-8">
             <a href="#contact">
               <button className="bg-gradient-to-r from-amber-500 to-orange-500 text-slate-900 px-6 py-2 rounded-lg font-semibold hover:from-amber-400 hover:to-orange-400 transition-all duration-300 transform hover:scale-105">
-                Join Us
+                Learn More
               </button>
             </a>
           </div>

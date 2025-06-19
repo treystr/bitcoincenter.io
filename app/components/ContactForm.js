@@ -123,12 +123,12 @@ const ContactForm = () => {
 
   return (
     <section id="contact" className="py-24">
-      <div className="max-w-2xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-6 text-center">
         {/* Contact form */}
         <div className="w-full">
-          <h2 className="text-5xl md:text-6xl font-extrabold text-white mb-10 text-center tracking-tight">Join the Bitcoin Academic Center</h2>
-          <p className="text-lg text-slate-200 mb-8 text-center">BITCOIN IS MAKING POLITICAL & ECONOMIC HISTORY. IT MUST BE STUDIED, EXPLAINED, AND PRESERVED IN THE CENTER OF POLITICS, THE NATION'S CAPITAL - WASHINGTON, DC.</p>
-          <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+          <h2 className="text-5xl md:text-6xl font-extrabold text-white mb-10 text-center tracking-tight">Learn More About the Bitcoin Academic Center</h2>
+          <p className="text-lg text-slate-200 mb-8 text-center">Please fill out the form below to learn more about the Bitcoin Academic Center.</p>
+          <form onSubmit={handleSubmit} className="flex flex-col gap-4 max-w-2xl mx-auto">
             {/* First / Last name row */}
             <div className="flex flex-col sm:flex-row gap-4">
               <input
@@ -162,16 +162,20 @@ const ContactForm = () => {
               className="w-full px-6 py-4 bg-slate-800/50 backdrop-blur-lg border border-amber-500 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 transition-all duration-300"
             />
 
-            {/* Phone */}
-            <div className="flex gap-4">
+            {/* Phone (combined select + input) */}
+            <div className="flex w-full bg-slate-800/50 backdrop-blur-lg border border-amber-500 rounded-xl overflow-hidden focus-within:border-amber-400 focus-within:ring-2 focus-within:ring-amber-400/20 transition-all duration-300">
               <select
                 value={phoneCountryIso}
                 onChange={(e) => setPhoneCountryIso(e.target.value)}
                 autoComplete="tel-country-code"
-                className="w-32 px-4 py-4 bg-slate-800/50 backdrop-blur-lg border border-amber-500 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 transition-all duration-300"
+                className="w-24 sm:w-32 shrink-0 bg-transparent px-4 py-4 text-white border-r border-amber-500 focus:outline-none"
               >
                 {countryOptions.map((country) => (
-                  <option key={country.iso} value={country.iso}>
+                  <option
+                    key={country.iso}
+                    value={country.iso}
+                    className="bg-slate-700 text-white"
+                  >
                     {country.label}
                   </option>
                 ))}
@@ -183,7 +187,7 @@ const ContactForm = () => {
                 onChange={(e) => setPhoneNational(e.target.value)}
                 placeholder="Phone Number (optional)"
                 autoComplete="tel-national"
-                className="flex-1 px-6 py-4 bg-slate-800/50 backdrop-blur-lg border border-amber-500 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 transition-all duration-300"
+                className="flex-1 min-w-0 bg-transparent px-4 py-4 text-white placeholder-slate-400 focus:outline-none"
               />
             </div>
 
@@ -208,7 +212,7 @@ const ContactForm = () => {
                   : 'bg-gradient-to-r from-amber-500 to-orange-500 text-slate-900 hover:from-amber-400 hover:to-orange-400 hover:shadow-amber-500/25'
               }`}
             >
-              {isSubmitting ? 'Submitting...' : isSubmitted ? 'Thank you!' : 'Join Us'}
+              {isSubmitting ? 'Submitting...' : isSubmitted ? 'Thank you!' : 'Submit'}
             </button>
 
             {/* Validation / submission feedback */}
