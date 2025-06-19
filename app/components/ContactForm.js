@@ -182,7 +182,8 @@ const ContactForm = () => {
               </select>
 
               <input
-                type="text"
+                type="tel"
+                inputMode="tel"
                 value={phoneNational}
                 onChange={(e) => setPhoneNational(e.target.value)}
                 placeholder="Phone Number (optional)"
