@@ -26,6 +26,14 @@ export default function Hero() {
           <p className="text-lg sm:text-xl md:text-2xl text-slate-300 leading-relaxed max-w-4xl mx-auto md:mx-0">
             The Bitcoin Academic Center will be the epicenter of Bitcoin scholarship and intellectual influence in the United States. It will be a pioneering interdisciplinary institution dedicated to advancing the understanding, adoption & innovation of Bitcoin through education, research, advocacy, and engagement with decision-makers.
           </p>
+
+          <div className="flex justify-center md:justify-start">
+            <a href="/#contact">
+              <button className="bg-gradient-to-r from-amber-500 to-orange-500 text-slate-900 px-8 py-3 rounded-lg font-semibold hover:from-amber-400 hover:to-orange-400 transition-all duration-300 transform hover:scale-105">
+                Learn More
+              </button>
+            </a>
+          </div>
         </div>
       </div>
     </section>

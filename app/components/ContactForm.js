@@ -213,7 +213,7 @@ const ContactForm = () => {
                   : 'bg-gradient-to-r from-amber-500 to-orange-500 text-slate-900 hover:from-amber-400 hover:to-orange-400 hover:shadow-amber-500/25'
               }`}
             >
-              {isSubmitting ? 'Submitting...' : isSubmitted ? 'Thank you!' : 'Submit'}
+              {isSubmitting ? 'Submitting...' : isSubmitted ? 'Thanks for your interest. We\'ll be in touch!' : 'Submit'}
             </button>
 
             {/* Validation / submission feedback */}
@@ -223,10 +223,6 @@ const ContactForm = () => {
                   <li key={key}>{msg}</li>
                 ))}
               </ul>
-            )}
-
-            {isSubmitted && (
-              <p className="text-green-400 text-sm font-medium animate-pulse">Thanks for reaching out! We'll be in touch.</p>
             )}
           </form>
         </div>
