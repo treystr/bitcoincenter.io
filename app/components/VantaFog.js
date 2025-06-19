@@ -19,17 +19,17 @@ export default function VantaFog() {
         const instance = effect({
           el: vantaRef.current,
           THREE,
-          mouseControls: false,
+          mouseControls: true,
           touchControls: false,
           gyroControls: true,
           minHeight: 500.0,
           minWidth: 500.0,
           highlightColor: 0xF7931A, // Bitcoin orange for the fog
           midtoneColor: 0x3F3C3C,  // Dark gray as requested
-          lowlightColor: 0x2A2929, // Slightly darker variant of #3F3C3C for depth
-          baseColor: 0x1F1E1E,     // Near #3F3C3C for a subtle gradient
-          blurFactor: 0.5,         // Kept for subtlety
-          speed: 0.4,
+          lowlightColor: 0x12034d, // Slightly darker variant of#12034d for depth
+          baseColor: 0x12034d,     // Near #3F3C3C for a subtle gradient
+          blurFactor: 0.8,         // Kept for subtlety
+          speed: 0.3,
           zoom: 0.5,
         });
         setVantaEffect(instance);
