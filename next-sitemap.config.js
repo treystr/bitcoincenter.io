@@ -1,6 +1,9 @@
 /** @type {import('next-sitemap').IConfig} */
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ''
-const siteOrigin = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'
+const siteOrigin = process.env.NEXT_PUBLIC_SITE_URL
+if (!siteOrigin) {
+  throw new Error('NEXT_PUBLIC_SITE_URL environment variable is not set.  \nMake sure it is provided in your CI/CD environment or .env files.');
+}
 
 const siteUrl = `${siteOrigin}${basePath}`
 
