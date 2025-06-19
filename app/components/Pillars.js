@@ -1,6 +1,7 @@
 "use client"
 import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
+import assetPath from '@/lib/assetPath'
 
 // Simple data structure representing each card in the Pillars section
 const pillarItems = [
@@ -57,9 +58,6 @@ function useInView(options) {
 }
 
 const Pillars = () => {
-  // Resolve correct base path for static assets in production just like other components
-  const basePath = process.env.NODE_ENV === 'production' ? '/bitcoincenter.io' : ''
-
   return (
     <section id="pillars" className="py-12">
       <div className="max-w-6xl mx-auto px-6 text-center">
@@ -68,7 +66,7 @@ const Pillars = () => {
           {pillarItems.map((item, index) => {
             const resolvedSrc = item.image.startsWith('http')
               ? item.image
-              : `${basePath}${item.image.startsWith('/') ? '' : '/'}${item.image}`
+              : assetPath(item.image)
 
             // Use intersection observer for each card
             const [cardRef, inView] = useInView({ threshold: 0.2 })

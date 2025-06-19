@@ -3,11 +3,11 @@
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState, useRef } from 'react'
+import assetPath from '@/lib/assetPath'
 
 // Accept an optional `backgroundClass` prop to apply custom background styles.
 const NavBar = ({ backgroundClass = '' }) => {
   const pathname = usePathname()
-  const basePath = process.env.NODE_ENV === 'production' ? '/bitcoincenter.io' : ''
 
   // State to track scroll direction
   const [showNav, setShowNav] = useState(true)
@@ -39,7 +39,7 @@ const NavBar = ({ backgroundClass = '' }) => {
           <div className="flex items-center space-x-3">
             <div className="w-[15px] h-[15px] rounded-lg flex items-center justify-center ml-auto">
               <Image
-                src={`${basePath}/monument.png`}
+                src={assetPath('/monument.png')}
                 alt="Bitcoin Center Logo"
                 width={60}
                 height={60}

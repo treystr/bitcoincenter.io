@@ -1,14 +1,13 @@
 import Image from 'next/image';
+import assetPath from '@/lib/assetPath';
 
 export default function Hero() {
-  const basePath = process.env.NODE_ENV === 'production' ? '/bitcoincenter.io' : '';
-
   return (
     <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden">
       <div className="container mx-auto px-6 py-16 flex flex-col md:flex-row items-center justify-center md:space-x-6 w-full">
         <div className="w-full md:w-1/4 flex justify-center mb-6 md:mb-0">
           <Image 
-            src={`${basePath}/bust.png`} 
+            src={assetPath('/bust.png')}
             alt="Bitcoin Academic Center" 
             width={248} 
             height={248} 
