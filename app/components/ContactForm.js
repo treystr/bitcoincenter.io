@@ -127,7 +127,7 @@ const ContactForm = () => {
         {/* Contact form */}
         <div className="w-full">
           <h2 className="text-5xl md:text-6xl font-extrabold text-white mb-10 text-center tracking-tight">Learn More About the Bitcoin Academic Center</h2>
-          <p className="text-lg text-slate-200 mb-8 text-center">Please fill out the form below to learn more about the Bitcoin Academic Center.</p>
+          <p className="text-lg text-slate-200 mb-8 text-center">Please leave us your contact details so we can follow up with more information about the Center.</p>
           <form onSubmit={handleSubmit} className="flex flex-col gap-4 max-w-2xl mx-auto">
             {/* First / Last name row */}
             <div className="flex flex-col sm:flex-row gap-4">
